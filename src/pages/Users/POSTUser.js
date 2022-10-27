@@ -29,7 +29,6 @@ const POSTUser = () => {
 
   return (
     <div className='user_http_method'>
-      <div>
         <h3>Register a new user</h3>
         <form onSubmit={handleCreate}>
           <input placeholder='Email' onChange={e => setInput({...input, email: e.target.value})}/>
@@ -41,11 +40,6 @@ const POSTUser = () => {
         
           <button type='submit'>Register user</button>
         </form>
-       
-        
-      </div>
-
-
     </div>
   )
 }

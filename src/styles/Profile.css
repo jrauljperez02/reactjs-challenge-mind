@@ -1,11 +1,17 @@
 .profile{
+    
+    max-width: 100%;
+    margin: 180px auto;
+    align-content: center;
+    justify-content: center;
+
     font-size: 15px;
     text-align: left;
     background-color: white;
     padding: 20px;
     border-radius: 7px;
     max-width: 900px;
-    box-shadow: 8px 8px 8px steelblue;
+
 }
 .profile_elements{
     display: flex;

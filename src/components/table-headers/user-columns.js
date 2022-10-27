@@ -1,6 +1,6 @@
 export const UserColumns = [
     {
-        Header: 'ID',
+        Header: 'User ID',
         accessor: 'id',
     },
     {

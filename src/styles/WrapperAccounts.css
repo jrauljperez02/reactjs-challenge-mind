@@ -1,0 +1,22 @@
+.account_http_method{
+    display: flex;
+    flex-direction: column;
+
+    padding-bottom: 20px;
+    border-bottom: 1px solid #ccc;
+}
+
+.account_finder button{
+    background-color:  rgb(41, 189, 113);
+}
+.account_finder button:hover{
+    background-color:  rgb(25, 119, 70);
+}
+
+
+.team_finder button{
+    background-color:rgb(196, 9, 9);
+}
+.team_finder button:hover{
+    background-color:rgb(116, 5, 5);
+}

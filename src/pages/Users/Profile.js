@@ -6,7 +6,7 @@ import '../../styles/Profile.css'
 const Profile = () => {
 
     const authTokens = {
-        access : "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjY2ODQxNDMzLCJpYXQiOjE2NjY4NDExMzMsImp0aSI6ImQyODI3OTdhMzc4NDQ3MmNhYzAwNjAxNjdhYjM2OWM3IiwidXNlcl9pZCI6MSwiZW1haWwiOiJqcmF1bGpwZXJlejAyLmRldkBnbWFpbC5jb20iLCJpc19zdGFmZiI6dHJ1ZSwiaXNfc3VwZXJ1c2VyIjp0cnVlLCJuYW1lIjoiSmVzdXMgUmF1bCBKaW1lbmV6IFBlcmV6In0.a2PL2ipkJlXfBVDJaHLngnIARKA230inFlIrYgvZRas"
+        access : "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjY2ODc4NDYzLCJpYXQiOjE2NjY4NzgxNjMsImp0aSI6ImM2NDU3MWY3MmQwMzRkZWZiNjA3M2YwMGMxYjIxODQ1IiwidXNlcl9pZCI6MSwiZW1haWwiOiJqcmF1bGpwZXJlejAyLmRldkBnbWFpbC5jb20iLCJpc19zdGFmZiI6dHJ1ZSwiaXNfc3VwZXJ1c2VyIjp0cnVlLCJuYW1lIjoiSmVzdXMgUmF1bCBKaW1lbmV6IFBlcmV6In0.UHUV19O_-6FxeQCgtpsOmaN2SzE6a_Dzt7q0Jx0BzHY"
     }
 
     const { data } = useApi(

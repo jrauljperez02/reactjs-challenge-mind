@@ -80,3 +80,54 @@ main{
     background-color: steelblue;
     color: white;
   }
+
+
+/* Account table */
+#accounts-table {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  #accounts-table  td, #accounts-table  th {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  #accounts-table  tr:nth-child(even){background-color: #f2f2f2;}
+  
+  #accounts-table tr:hover {background-color: #ddd;transition: 0.2s;}
+  
+  #accounts-table  th {
+    padding-top: 10px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: rgb(41, 189, 113);
+    color: white;
+  }
+
+  /* Teams Table */
+
+
+  #teams-table {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  #teams-table   td,  #teams-table   th {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  #teams-table   tr:nth-child(even){background-color: #f2f2f2;}
+  
+  #teams-table  tr:hover {background-color: #ddd;transition: 0.2s;}
+  
+  #teams-table   th {
+    padding-top: 10px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: rgb(196, 9, 9);
+    color: white;
+  }
