@@ -1,0 +1,25 @@
+.profile{
+    font-size: 15px;
+    text-align: left;
+    background-color: white;
+    padding: 20px;
+    border-radius: 7px;
+    max-width: 900px;
+    box-shadow: 8px 8px 8px steelblue;
+}
+.profile_elements{
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+.profile_elements_text a{
+    text-decoration: none;
+    color: steelblue;
+}
+
+.profile h3, .profile img{
+    padding: 20px 0;
+}
+.profile p{
+    padding: 5px 0;
+}
