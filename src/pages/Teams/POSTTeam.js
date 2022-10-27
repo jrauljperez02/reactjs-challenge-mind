@@ -1,9 +1,13 @@
-import React, {useState} from 'react'
+import React, {useState, useContext} from 'react'
+import AuthContext from '../../context/AuthContext'
 
 const POSTTeam = () => {
 
   const [name, setName] = useState('')
   const [coworkersID, setCoworkersID] = useState(null)
+
+  let {authTokens} = useContext(AuthContext)
+
 
   const handleCreate = async(e) => {
     e.preventDefault();
@@ -12,6 +16,7 @@ const POSTTeam = () => {
       method: 'POST',
       headers: {
         'Content-Type':'application/json',
+        'Authorization' : `Bearer ${authTokens.access}`,
       },
       body: JSON.stringify({
         'team_name': name,

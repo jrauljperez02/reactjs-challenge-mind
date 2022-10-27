@@ -1,6 +1,10 @@
-import React, {useState} from 'react'
+import React, {useState , useContext} from 'react'
+import AuthContext from '../../context/AuthContext';
 
 const UPDATEAccount = () => {
+
+  let {authTokens} = useContext(AuthContext)
+
 
   const [input, setInput] = useState({
     account_name: '',
@@ -19,6 +23,7 @@ const UPDATEAccount = () => {
       body: JSON.stringify(input),
       headers: {
         'Content-type': 'application/json; charset=UTF-8',
+        'Authorization' : `Bearer ${authTokens.access}`,
       },
     })
     if(response.status === 200){

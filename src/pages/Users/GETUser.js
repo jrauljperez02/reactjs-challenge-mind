@@ -1,12 +1,16 @@
-import React, {useMemo, useState} from 'react'
+import React, {useMemo, useState, useContext} from 'react'
 
 import { useTable } from 'react-table'
 import { UserColumns } from '../../components/table-headers/user-columns'
+
+import AuthContext from '../../context/AuthContext'
 
 const GETUser = () => {
 
   const [name, setName] = useState('')
   const [data, setData] = useState([])
+
+  const {authTokens} = useContext(AuthContext)
 
 
   const handleClick = async () => {
@@ -15,6 +19,7 @@ const GETUser = () => {
         method: 'GET',
         headers: {
           Accept: 'application/json',
+          'Authorization' : `Bearer ${authTokens.access}`,
         },
       });
 

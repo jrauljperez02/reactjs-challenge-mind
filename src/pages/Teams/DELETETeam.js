@@ -1,8 +1,12 @@
-import React, {useState} from 'react'
+import React, {useState, useContext} from 'react'
+import AuthContext from '../../context/AuthContext'
 
 const DELETETeam = () => {
 
   const [input, setInput] = useState('');
+
+  let {authTokens} = useContext(AuthContext)
+
   
   const handleDelete = async(e) => {
     e.preventDefault();
@@ -10,6 +14,7 @@ const DELETETeam = () => {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',
+        'Authorization' : `Bearer ${authTokens.access}`,
       }
     })
     if(response.status === 204){

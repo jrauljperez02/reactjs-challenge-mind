@@ -1,6 +1,9 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
+import AuthContext from '../../context/AuthContext'
 
 const POSTUser = () => {
+
+  const {authTokens} = useContext(AuthContext)
 
   const [input, setInput] = useState({
     email: '',
@@ -18,6 +21,7 @@ const POSTUser = () => {
       method: 'POST',
       headers: {
         'Content-Type':'application/json',
+        'Authorization' : `Bearer ${authTokens.access}`,
       },
       body: JSON.stringify(input)
     })

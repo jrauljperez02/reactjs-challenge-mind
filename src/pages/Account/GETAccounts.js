@@ -1,4 +1,5 @@
-import React, {useMemo, useState} from 'react'
+import React, {useMemo, useState,useContext} from 'react'
+import AuthContext from '../../context/AuthContext';
 
 import { useTable } from 'react-table'
 import { AccountColums } from '../../components/table-headers/account-colums'
@@ -7,6 +8,8 @@ const GETAccounts = () => {
 
   const [name, setName] = useState('')
   const [data, setData] = useState([])
+  let {authTokens} = useContext(AuthContext)
+
 
 
   const handleClick = async () => {
@@ -15,6 +18,7 @@ const GETAccounts = () => {
         method: 'GET',
         headers: {
           Accept: 'application/json',
+          'Authorization' : `Bearer ${authTokens.access}`,
         },
       });
 
@@ -29,7 +33,6 @@ const GETAccounts = () => {
     }
   };
 
-  console.log(data)
 
   const columns = useMemo(() => AccountColums, [])
 

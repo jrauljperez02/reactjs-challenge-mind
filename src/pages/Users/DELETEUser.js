@@ -1,6 +1,9 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
+import AuthContext from '../../context/AuthContext';
 
 const DELETEUser = () => {
+
+  let {authTokens} = useContext(AuthContext)
 
   const [input, setInput] = useState('');
   
@@ -10,6 +13,7 @@ const DELETEUser = () => {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',
+        'Authorization' : `Bearer ${authTokens.access}`,
       }
     })
     if(response.status === 204){

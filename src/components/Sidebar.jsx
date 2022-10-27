@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import {
     FaTeamspeak,
     FaBars,
@@ -6,11 +6,18 @@ import {
 }from "react-icons/fa";
 import {CgProfile} from 'react-icons/cg'
 import {FiUsers} from 'react-icons/fi'
+import {BiLogOut} from 'react-icons/bi'
 
-import { NavLink } from 'react-router-dom';
+import {  NavLink } from 'react-router-dom';
+
+
+import AuthContext from '../context/AuthContext'
 
 
 const Sidebar = ({children}) => {
+
+    let {user, logoutUser} = useContext(AuthContext)
+
     const[isOpen ,setIsOpen] = useState(false);
     const toggle = () => setIsOpen (!isOpen);
     const menuItem=[
@@ -52,7 +59,17 @@ const Sidebar = ({children}) => {
                        </NavLink>
                    ))
                }
+               {user ? 
+                    <NavLink to = '/login/' className='link' onClick={logoutUser}>
+                        <div className='icon'><BiLogOut/></div>
+                        <div style={{display: isOpen ? "block" : "none"}} className="link_text">Logout</div>
+                    </NavLink>: null
+                }
+              
+               
            </div>
+
+           
            <main>{children}</main>
         </div>
     );

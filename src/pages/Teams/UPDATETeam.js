@@ -1,10 +1,14 @@
-import React, { useState } from 'react'
+import React, { useState , useContext} from 'react'
+import AuthContext from '../../context/AuthContext'
 
 const UPDATETeam = () => {
 
   const [id, setID] = useState('')
   const [name, setName] = useState('')
   const [coworkersID, setCoworkersID] = useState(null)
+
+  let {authTokens} = useContext(AuthContext)
+
 
   const handleUpdate = async(e) => {
     e.preventDefault();
@@ -18,6 +22,7 @@ const UPDATETeam = () => {
       }),
       headers: {
         'Content-type': 'application/json; charset=UTF-8',
+        'Authorization' : `Bearer ${authTokens.access}`,
       },
     })
     if(response.status === 200){
