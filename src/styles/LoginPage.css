@@ -1,11 +1,15 @@
 .login_form{
-    background-color: rgb(0, 3, 31);
-    height: 100vh;
+
+    border-radius: 10px;
+    max-width: 50%;
+    margin: 0 auto;
+    padding: 300px 0;
+
+    
     display: flex;
     align-items: center;
     flex-direction: column;
-    color: white;
-    padding: 280px 0;
+    color: rgb(0, 0, 0);
 
 }
 
@@ -20,20 +24,20 @@
     margin: 5px 0;
     padding: 7px 25px;
     border-radius: 5px;
-    border: none;
+    border: 1px solid #ccc;
 }
 
 .login_form button{
     margin-top: 20px;
     padding: 10px 30px;
     align-items: center;
-    background-color: #61DBFB;
+    background-color: #004556;
     border-radius: 5px;
     color: white;
     border: none;
 }
 .login_form button:hover{
     transition: 0.5s;
-    background-color: #4395aa;  
+    background-color: #61DBFB;  
     cursor: pointer;
 }
