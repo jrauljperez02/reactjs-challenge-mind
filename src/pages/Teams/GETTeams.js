@@ -29,8 +29,6 @@ const GETTeams = () => {
     }
   };
 
-  console.log(data)
-
   const columns = useMemo(() => TeamColumns, [])
 
   const tableInstance = useTable({
@@ -51,13 +49,13 @@ const GETTeams = () => {
   return (
     <div className='user_http_method'>
       <div className='team_finder'>
-        <h3>Consult accounts by name</h3>
+        <h3>Consult teams by name</h3>
         <p>(Leave field empty to search for all users)</p>
         <input 
           onChange={e => setName(e.target.value)}
           placeholder='Enter name'
         />
-        <button onClick={handleClick} className ='account_button'>Search account</button>
+        <button onClick={handleClick} className ='account_button'>Search team</button>
       </div>
       
 

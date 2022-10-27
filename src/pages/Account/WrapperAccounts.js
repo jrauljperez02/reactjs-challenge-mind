@@ -4,17 +4,19 @@ import GETAccounts from './GETAccounts'
 import POSTAccount from './POSTAccount'
 import UPDATEAccount from './UPDATEAccount'
 
+import Sidebar from '../../components/Sidebar'
+
 import '../../styles/WrapperAccounts.css'
 
 const WrapperAccounts = () => {
   return (
-    <div className='account_wrapper'>
+    <Sidebar>
       
       <GETAccounts/>
       <POSTAccount/>
       <UPDATEAccount/>
       <DELETEAccount/>
-    </div>
+    </Sidebar>
   )
 }
 

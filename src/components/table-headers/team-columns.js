@@ -8,7 +8,7 @@ export const TeamColumns = [
         accessor: 'team_name',
     },
     {
-        Header: 'Coworkers',
+        Header: 'User ID coworkers',
         accessor: 'coworkers',
     }
 ]

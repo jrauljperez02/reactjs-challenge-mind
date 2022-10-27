@@ -20,7 +20,7 @@ const DELETEAccount = () => {
   return (
     <div className='user_http_method'>
         <div className='account_finder'>
-            <h3>Delet accounts by id</h3>
+            <h3>Delete accounts by id</h3>
             <input placeholder='Enter ID' onChange={e => setInput(e.target.value)}/>
             <div className=''>
               <button onClick={handleDelete}>Delete account</button>

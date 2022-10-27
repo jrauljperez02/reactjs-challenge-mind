@@ -5,14 +5,16 @@ import POSTTeam from './POSTTeam'
 import UPDATETeam from './UPDATETeam'
 import DELETETeam from './DELETETeam'
 
+import Sidebar from '../../components/Sidebar'
+
 const WrapperTeams = () => {
   return (
-    <div>
+    <Sidebar>
       <GETTeams/>
       <POSTTeam/>
       <UPDATETeam/>
       <DELETETeam/>
-    </div>
+    </Sidebar>
   )
 }
 

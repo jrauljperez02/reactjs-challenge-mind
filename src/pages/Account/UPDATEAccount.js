@@ -43,11 +43,8 @@ const UPDATEAccount = () => {
           
           <div className='account_finder'>
             <button onClick={handleUpdate} >Update account</button>
-          </div>
-          
+          </div>        
         </form>
-        
-
     </div>
   )
 }

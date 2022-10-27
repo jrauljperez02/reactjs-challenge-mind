@@ -6,14 +6,16 @@ import GETUser from './GETUser'
 import POSTUser from './POSTUser'
 import UPDATEUser from './UPDATEUser'
 
+import Sidebar from '../../components/Sidebar'
+
 const WrapperUsers = () => {
   return (
-    <div>
+    <Sidebar>
       <GETUser/>
       <POSTUser/>
       <UPDATEUser/>
       <DELETEUser/>
-    </div>
+    </Sidebar>
   )
 }
 
