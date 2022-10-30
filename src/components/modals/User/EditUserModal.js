@@ -1,16 +1,16 @@
-import React, {useContext} from 'react'
-import {Modal, Button, Row, Col, Form} from 'react-bootstrap'
-import AuthContext from '../../context/AuthContext'
+import React,{useContext} from 'react'
+import {Modal,Button, Row, Col, Form} from 'react-bootstrap';
+import AuthContext from '../../../context/AuthContext';
 
-const AddUserModal = (props) => {
+const EditUserModal = (props) => {
 
     let {authTokens} = useContext(AuthContext)
 
     const handleSubmit = async(event) => {   
         event.preventDefault();
 
-        const response = await fetch('http://127.0.0.1:8000/api-users-admin/',{
-            method:'POST',
+        const response = await fetch(`http://127.0.0.1:8000/api-users-admin/${props.userId}/`,{
+            method:'PUT',
             headers:{
                 'Accept':'application/json',
                 'Content-Type':'application/json',
@@ -31,8 +31,6 @@ const AddUserModal = (props) => {
         }else{
             alert("Something went wrong")
         }
-
-
     }
 
 
@@ -40,21 +38,20 @@ const AddUserModal = (props) => {
     <div className='container'>
         <Modal
             {...props}
-                size="lg"
-                aria-labelledby="contained-modal-title-vcenter"
-                centered
-            >
+            size="lg"
+            aria-labelledby="contained-modal-title-vcenter"
+            centered
+        >
+             <Modal.Header clooseButton>
+                <Modal.Title id="contained-modal-title-vcenter">
+                    Update {props.userName} profile
+                </Modal.Title>
+            </Modal.Header>
 
-                <Modal.Header clooseButton>
-                    <Modal.Title id="contained-modal-title-vcenter">
-                        Add User
-                    </Modal.Title>
-                </Modal.Header>
-
-                <Modal.Body>
-                    <Row>
-                        <Col sm={6}>
-                            <Form onSubmit={handleSubmit}>
+            <Modal.Body>
+                <Row>
+                    <Col sm={6}>
+                        <Form onSubmit={handleSubmit}>
                                 <Form.Label>Email</Form.Label>
                                 <Form.Control type="text" name="email" required placeholder="Email"/>
 
@@ -74,28 +71,28 @@ const AddUserModal = (props) => {
 
                                 <Form.Label>Resume link</Form.Label>
                                 <Form.Control type="text" name="resume_link" required placeholder="Resume Link"/>
-
+                        
                                 <Form.Group>
                                     <Button 
                                         style={{marginTop: 10}}
                                         variant="primary" 
                                         type="submit">
-                                        Add User
+                                        Update User
                                     </Button>
                                 </Form.Group>
-                            </Form>
-                        </Col>
-                    </Row>
-                </Modal.Body>
+                        </Form>
+                    </Col>
+                </Row>
+            </Modal.Body>
+
+            <Modal.Footer>
+                <Button variant="danger" onClick={props.onHide}>Close</Button>
+            </Modal.Footer>
 
 
-
-                <Modal.Footer>
-                    <Button variant="danger" onClick={props.onHide}>Close</Button>
-                </Modal.Footer>
         </Modal>
     </div>
   )
 }
 
-export default AddUserModal
+export default EditUserModal

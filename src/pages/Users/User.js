@@ -3,17 +3,23 @@ import { Table } from 'react-bootstrap';
 import {Button,ButtonToolbar} from 'react-bootstrap';
 
 import AuthContext from '../../context/AuthContext';
-import AddUserModal from '../../components/modals/AddUserModal';
+import AddUserModal from '../../components/modals/User/AddUserModal';
+import EditUserModal from '../../components/modals/User/EditUserModal';
 
 const User = () => {
 
     const [users, setUsers] = useState([])
     const [name, setName] = useState("")
     const [addModalShow, setAddModalShow] = useState(false)
+    const [editModalShow, setEditModalShow] = useState(false)
+
+    const [userId, setUserId] = useState('')
+    const [userName, setUserName] = useState('')
 
     const {authTokens} = useContext(AuthContext)
 
     let addModalClose=()=>setAddModalShow(false);
+    let editModalClose=()=>setEditModalShow(false);
 
 
     const deleteUser = async(userId) => {
@@ -28,7 +34,6 @@ const User = () => {
             if(response.status === 204){
                 alert("User deleted successfully!")
             }
-
         }
     }
 
@@ -53,7 +58,7 @@ const User = () => {
           console.log(err.message);
         }
       };
-
+    
 
   return <div className='container'>
   <h3 className="m-3 d-flex justify-content-center">Users page</h3>
@@ -95,14 +100,24 @@ const User = () => {
                             <ButtonToolbar>
                                 <Button 
                                     className='mr-3' 
-                            
-                                    onClick={() => {}}
+                                    onClick={() => {
+                                        setEditModalShow(true); 
+                                        setUserId(user.id);
+                                        setUserName(user.name);
+                                    }}
                                 >Edit</Button>
                                 <Button 
                                         style = {{marginLeft: 8}}
                                         className='btn btn-danger' 
                                         onClick={() => {deleteUser(user.id)}}
                                 >Delete</Button>
+
+                                <EditUserModal 
+                                    show = {editModalShow}
+                                    onHide = {editModalClose}
+                                    userId = {userId}
+                                    userName = {userName}
+                                />
 
                             </ButtonToolbar>
                         </td>
