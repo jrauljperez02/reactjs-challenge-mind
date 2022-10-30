@@ -8,7 +8,6 @@ import UPDATEAccount from './UPDATEAccount'
 
 import Sidebar from '../../components/Sidebar'
 
-import '../../styles/WrapperAccounts.css'
 
 const WrapperAccounts = () => {
 

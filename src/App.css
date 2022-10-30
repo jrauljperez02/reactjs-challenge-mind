@@ -3,13 +3,16 @@
     padding:0;
     text-decoration: none;
 }
+a{
+    text-decoration: none;
+}
 body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
       'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
       sans-serif;
       font-size: calc(10px + 0.5vmin);
   }
-.container{
+.container-react{
     display:flex;
 }
 main{
@@ -56,78 +59,3 @@ main{
     font-size: 20px;
 }
 
-
-/* Table */
-#users-table {
-    font-family: Arial, Helvetica, sans-serif;
-    border-collapse: collapse;
-    width: 100%;
-  }
-  
-  #users-table td, #users-table th {
-    border: 1px solid #ddd;
-    padding: 8px;
-  }
-  
-  #users-table tr:nth-child(even){background-color: #f2f2f2;}
-  
-  #users-table tr:hover {background-color: #ddd;transition: 0.2s;}
-  
-  #users-table th {
-    padding-top: 10px;
-    padding-bottom: 12px;
-    text-align: left;
-    background-color: steelblue;
-    color: white;
-  }
-
-
-/* Account table */
-#accounts-table {
-    font-family: Arial, Helvetica, sans-serif;
-    border-collapse: collapse;
-    width: 100%;
-  }
-  
-  #accounts-table  td, #accounts-table  th {
-    border: 1px solid #ddd;
-    padding: 8px;
-  }
-  
-  #accounts-table  tr:nth-child(even){background-color: #f2f2f2;}
-  
-  #accounts-table tr:hover {background-color: #ddd;transition: 0.2s;}
-  
-  #accounts-table  th {
-    padding-top: 10px;
-    padding-bottom: 12px;
-    text-align: left;
-    background-color: rgb(41, 189, 113);
-    color: white;
-  }
-
-  /* Teams Table */
-
-
-  #teams-table {
-    font-family: Arial, Helvetica, sans-serif;
-    border-collapse: collapse;
-    width: 100%;
-  }
-  
-  #teams-table   td,  #teams-table   th {
-    border: 1px solid #ddd;
-    padding: 8px;
-  }
-  
-  #teams-table   tr:nth-child(even){background-color: #f2f2f2;}
-  
-  #teams-table  tr:hover {background-color: #ddd;transition: 0.2s;}
-  
-  #teams-table   th {
-    padding-top: 10px;
-    padding-bottom: 12px;
-    text-align: left;
-    background-color: rgb(196, 9, 9);
-    color: white;
-  }
