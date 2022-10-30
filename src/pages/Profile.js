@@ -1,7 +1,7 @@
 import React, {useContext} from 'react'
-import '../../styles/Profile.css'
-import AuthContext from '../../context/AuthContext'
-import Sidebar from '../../components/Sidebar'
+import '../styles/Profile.css'
+import AuthContext from '../context/AuthContext'
+import Sidebar from '../components/Sidebar'
 
 const Profile = () => {
 
