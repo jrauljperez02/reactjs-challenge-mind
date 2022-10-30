@@ -5,6 +5,7 @@ import AuthContext from '../../context/AuthContext';
 
 
 import AddAccountModal from '../../components/modals/Account/AddAccountModal';
+import EditAccountModal from '../../components/modals/Account/EditAccountModal';
 
 const Account = () => {
 
@@ -15,11 +16,14 @@ const Account = () => {
   const [accounts, setAccounts] = useState([])
 
   const [addModalShow, setAddModalShow] = useState(false)
+  const [editModalShow, setEditModalShow] = useState(false)
 
   const [accountID, setAccountID] = useState('')
+  const [accountName, setAccountName] = useState('')
 
 
   let addModalClose=()=>setAddModalShow(false);
+  let editModalClose=()=>setEditModalShow(false);
 
 
   const deleteAccount = async(accountID,accountName) => {
@@ -101,12 +105,25 @@ const Account = () => {
                             <ButtonToolbar>
                                 <Button 
                                     className='mr-3' 
+                                    onClick = {() => {
+                                      setEditModalShow(true); 
+                                      setAccountID(account.id);
+                                      setAccountName(account.account_name)
+                                    }}
                                 >Edit</Button>
                                 <Button 
                                     style = {{marginLeft: 8}}
                                     className='btn btn-danger' 
                                     onClick={() => {deleteAccount(account.id, account.account_name)}}  
                                 >Delete</Button>
+
+                                <EditAccountModal 
+                                  show = {editModalShow}
+                                  onHide = {editModalClose}
+                                  accountId = {accountID}
+                                  accountName = {accountName}
+                                />
+
                             </ButtonToolbar>
                         </td>
                     </tr>

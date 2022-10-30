@@ -27,7 +27,7 @@ const EditUserModal = (props) => {
         })
 
         if(response.status === 201 || response.status === 200){
-            alert('User added successfully!')
+            alert('User updated successfully!')
         }else{
             alert("Something went wrong")
         }
