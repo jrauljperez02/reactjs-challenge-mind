@@ -7,6 +7,7 @@ import {Button,ButtonToolbar} from 'react-bootstrap';
 import {convertArrayToObject} from '../../utils/convertArrayToObject'
 
 import AddTeamModal from '../../components/modals/Team/AddTeamModal';
+import EditTeamModal from '../../components/modals/Team/EditTeamModal';
 
 const Team = () => {
 
@@ -17,9 +18,15 @@ const Team = () => {
 
     const [users, setUsers] = useState([]);
 
+
+    const [teamID, setTeamID] = useState('');
+    const [teamName, setTeamName] = useState('');
+
     const [addModalShow, setAddModalShow] = useState(false)
+    const [editModalShow, setEditModalShow] = useState(false)
 
     let addModalClose=()=>setAddModalShow(false);
+    let editModalClose=()=>setEditModalShow(false);
 
     const deleteTeam = async(teamID,teamName) => {
         if(window.confirm(`Are you sure you want to delete ${teamName} team?`)){
@@ -131,7 +138,9 @@ const Team = () => {
                                 <Button 
                                     className='mr-3' 
                                     onClick = {() => {
-                             
+                                        setEditModalShow(true); 
+                                        setTeamID(team.id);
+                                        setTeamName(team.team_name)
                                     }}
                                 >Edit</Button>
                                 <Button 
@@ -139,6 +148,13 @@ const Team = () => {
                                     className='btn btn-danger' 
                                     onClick={() => {deleteTeam(team.id, team.team_name)}}  
                                 >Delete</Button>
+
+                                <EditTeamModal
+                                    show = {editModalShow}
+                                    onHide = {editModalClose}
+                                    teamID = {teamID}
+                                    teamName = {teamName}
+                                />
 
                             </ButtonToolbar>
                         </td>
