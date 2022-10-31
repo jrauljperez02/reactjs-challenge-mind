@@ -112,7 +112,6 @@ const EditAccountModal = (props) => {
                 <Form.Control 
                     type="text" 
                     name="account_name" 
-                    value={props.accountName}
                     required 
                     placeholder="Account name"/>
             </Form.Group>
@@ -123,7 +122,6 @@ const EditAccountModal = (props) => {
                     type="text" 
                     name="account_customer" 
                     required 
-                    value = {props.accountCustomer}
                     placeholder="Account customer"/>
             </Form.Group>
 

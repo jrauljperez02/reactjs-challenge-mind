@@ -6,6 +6,8 @@ import {Button,ButtonToolbar} from 'react-bootstrap';
 
 import {convertArrayToObject} from '../../utils/convertArrayToObject'
 
+import AddTeamModal from '../../components/modals/Team/AddTeamModal';
+
 const Team = () => {
 
     let {authTokens} =  useContext(AuthContext)
@@ -15,6 +17,9 @@ const Team = () => {
 
     const [users, setUsers] = useState([]);
 
+    const [addModalShow, setAddModalShow] = useState(false)
+
+    let addModalClose=()=>setAddModalShow(false);
 
     const deleteTeam = async(teamID,teamName) => {
         if(window.confirm(`Are you sure you want to delete ${teamName} team?`)){
@@ -135,14 +140,25 @@ const Team = () => {
                                     onClick={() => {deleteTeam(team.id, team.team_name)}}  
                                 >Delete</Button>
 
-
-
                             </ButtonToolbar>
                         </td>
                     </tr>
                 )}
             </tbody>
         </Table>
+
+        <ButtonToolbar>
+            <Button 
+                className='btn btn-success'
+                onClick={()=>setAddModalShow(true)}>
+                Add team
+            </Button>
+
+                <AddTeamModal 
+                    show = {addModalShow}
+                    onHide = {addModalClose}
+                   />
+        </ButtonToolbar>
         
     </div>
   )
