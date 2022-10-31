@@ -18,7 +18,25 @@ const AddTeamModal = (props) => {
         event.preventDefault();
         const arrayOfUsersToPost = usersInput.map(user => user.split(' - ')[1])
 
-        console.log(arrayOfUsersToPost)
+        const response = await fetch('http://127.0.0.1:8000/api-team/',{
+            method:'POST',
+            headers:{
+                'Accept':'application/json',
+                'Content-Type':'application/json',
+                'Authorization' : `Bearer ${authTokens.access}`,
+            },
+            body:JSON.stringify({
+                'team_name': event.target.team_name.value,
+                'coworkers': arrayOfUsersToPost,
+            })
+        })
+
+        if(response.status === 201 || response.status === 200){
+            alert('Team added successfully!')
+        }else{
+            alert("Something went wrong")
+        }
+        
     }
 
     useEffect(() => { 
@@ -65,7 +83,7 @@ const AddTeamModal = (props) => {
 
             <Modal.Header clooseButton>
                 <Modal.Title id="contained-modal-title-vcenter">
-                    Add Account
+                    Add Team
                 </Modal.Title>
             </Modal.Header>
 
@@ -83,19 +101,16 @@ const AddTeamModal = (props) => {
                             </Form.Group>
                             
 
-                            {/* <Form.Group controlId="coworkers">
+                            <Form.Group controlId="coworkers">
                                 <Form.Label>Coworkers</Form.Label>
-                                <select multiple className="form-select">
-                                {users.map(user=>
-                                    <option key={user.id}>{user.name} - {user.id}</option>)}
-                                </select>
-                            </Form.Group> */}
-                            <Multiselect 
-                                isObject = {false}
-                                options={arrayOfUsers}
-                                onRemove = {e => e}
-                                onSelect = {e => setUsersInput(e)}
-                            />
+                                <Multiselect 
+                                    isObject = {false}
+                                    options={arrayOfUsers}
+                                    onRemove = {e => e}
+                                    onSelect = {e => setUsersInput(e)}
+                                />
+                            </Form.Group>
+                            
 
 
 
@@ -104,7 +119,7 @@ const AddTeamModal = (props) => {
                                     style= {{marginTop:15}}
                                     variant="primary" 
                                     type="submit">
-                                    Add Account
+                                    Add Team
                                 </Button>
                             </Form.Group>
                         </Form>
