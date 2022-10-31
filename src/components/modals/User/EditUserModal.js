@@ -53,7 +53,12 @@ const EditUserModal = (props) => {
                     <Col sm={6}>
                         <Form onSubmit={handleSubmit}>
                                 <Form.Label>Email</Form.Label>
-                                <Form.Control type="text" name="email" required placeholder="Email"/>
+                                <Form.Control 
+                                    value = {props.userEmail}
+                                    type="text" 
+                                    name="email" 
+                                    required 
+                                    placeholder="Email"/>
 
 
                                 <Form.Label>Password</Form.Label>
@@ -61,16 +66,16 @@ const EditUserModal = (props) => {
                                     
 
                                 <Form.Label>Name</Form.Label>
-                                <Form.Control type="text" name="name" required placeholder="Name"/>
+                                <Form.Control type="text" name="name" value = {props.userName} required placeholder="Name"/>
 
                                 <Form.Label>English Level</Form.Label>
-                                <Form.Control type="text" name="english_level" required placeholder="English Level"/>
+                                <Form.Control type="text" name="english_level" value = {props.userEnglishLevel} required placeholder="English Level"/>
                                 
                                 <Form.Label>Technical skills</Form.Label>
-                                <Form.Control type="text" name="technical_skills" required placeholder="Technical Skills"/>
+                                <Form.Control type="text" name="technical_skills" value = {props.userTechnicalSkills} required placeholder="Technical Skills"/>
 
                                 <Form.Label>Resume link</Form.Label>
-                                <Form.Control type="text" name="resume_link" required placeholder="Resume Link"/>
+                                <Form.Control type="text" name="resume_link" value = {props.userResumeLink} required placeholder="Resume Link"/>
                         
                                 <Form.Group>
                                     <Button 

@@ -21,6 +21,7 @@ const Account = () => {
 
   const [accountID, setAccountID] = useState('')
   const [accountName, setAccountName] = useState('')
+  const [accountCustomer, setAccountCustomer] = useState('')
 
 
   const [users, setUsers] = useState([]);
@@ -168,6 +169,7 @@ const Account = () => {
                                       setEditModalShow(true); 
                                       setAccountID(account.id);
                                       setAccountName(account.account_name)
+                                      setAccountCustomer(account.account_customer)
                                     }}
                                 >Edit</Button>
                                 <Button 
@@ -181,6 +183,7 @@ const Account = () => {
                                   onHide = {editModalClose}
                                   accountId = {accountID}
                                   accountName = {accountName}
+                                  accountCustomer = {accountCustomer}
                                 />
 
                             </ButtonToolbar>

@@ -14,7 +14,12 @@ const User = () => {
     const [editModalShow, setEditModalShow] = useState(false)
 
     const [userId, setUserId] = useState('')
+    const [userEmail, setUserEmail] = useState('')
     const [userName, setUserName] = useState('')
+    const [userEnglishLevel, setUserEnglishLevel] = useState('');
+    const [userTechnicalSkills, setUserTechnicalSkills] = useState('');
+    const [userResumeLink, setUserResumeLink] = useState('');
+
 
     const {authTokens} = useContext(AuthContext)
 
@@ -105,6 +110,10 @@ const User = () => {
                                         setEditModalShow(true); 
                                         setUserId(user.id);
                                         setUserName(user.name);
+                                        setUserEmail(user.email);
+                                        setUserEnglishLevel(user.english_level);
+                                        setUserTechnicalSkills(user.technical_skills);
+                                        setUserResumeLink(user.resume_link);
                                     }}
                                 >Edit</Button>
                                 <Button 
@@ -117,7 +126,11 @@ const User = () => {
                                     show = {editModalShow}
                                     onHide = {editModalClose}
                                     userId = {userId}
+                                    userEmail = {userEmail}
                                     userName = {userName}
+                                    userEnglishLevel = {userEnglishLevel}
+                                    userResumeLink = {userResumeLink}
+                                    userTechnicalSkills = {userTechnicalSkills}
                                 />
 
                             </ButtonToolbar>
