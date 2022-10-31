@@ -1,8 +1,9 @@
-import React, {useState, useContext} from 'react'
+import React, {useState, useContext, useEffect} from 'react'
 import { Table } from 'react-bootstrap';
 import {Button,ButtonToolbar} from 'react-bootstrap';
 import AuthContext from '../../context/AuthContext';
 
+import {convertArrayToObject} from '../../utils/convertArrayToObject'
 
 import AddAccountModal from '../../components/modals/Account/AddAccountModal';
 import EditAccountModal from '../../components/modals/Account/EditAccountModal';
@@ -20,6 +21,10 @@ const Account = () => {
 
   const [accountID, setAccountID] = useState('')
   const [accountName, setAccountName] = useState('')
+
+
+  const [users, setUsers] = useState([]);
+  const [teams, setTeams] = useState([]);
 
 
   let addModalClose=()=>setAddModalShow(false);
@@ -65,6 +70,60 @@ const Account = () => {
   };
 
 
+  useEffect(() => {
+        
+    const loadUsers = async() => {
+        try {
+            const response = await fetch(`http://localhost:8000/api-users-admin/`, {
+              method: 'GET',
+              headers: {
+                  Accept: 'application/json',
+                  'Authorization' : `Bearer ${authTokens.access}`,
+              },
+            });
+      
+            if (!response.ok) {
+              throw new Error(`Error! status: ${response.status}`);
+            }
+      
+            const result = await response.json();
+            setUsers(result);
+          } catch (err) {
+            console.log(err.message);
+          }
+    }
+
+
+    const loadTeams = async() => {
+        try {
+            const response = await fetch(`http://127.0.0.1:8000/api-team/`, {
+              method: 'GET',
+              headers: {
+                  Accept: 'application/json',
+                  'Authorization' : `Bearer ${authTokens.access}`,
+              },
+            });
+      
+            if (!response.ok) {
+              throw new Error(`Error! status: ${response.status}`);
+            }
+      
+            const result = await response.json();
+            setTeams(result);
+          } catch (err) {
+            console.log(err.message);
+          }
+    }
+
+    loadUsers();
+    loadTeams();
+
+},[authTokens.access])
+
+  const usersObject = convertArrayToObject(users,'id');
+  const teamsObject = convertArrayToObject(teams,'id');
+
+
   return(
     <div className='container'>
         <h3 className="m-3 d-flex justify-content-center">Account page</h3>
@@ -99,8 +158,8 @@ const Account = () => {
                         <td>{account.id}</td>
                         <td>{account.account_name}</td>
                         <td>{account.account_customer}</td>
-                        <td>{account.operational_responsable}</td>
-                        <td>{account.team_id}</td>
+                        <td>{usersObject[account.operational_responsable].name}</td>
+                       <td>{teamsObject[account.team_id].team_name}</td>
                         <td>
                             <ButtonToolbar>
                                 <Button 

@@ -29,7 +29,7 @@ const AddAccountModal = (props) => {
         })
 
         if(response.status === 201 || response.status === 200){
-            alert('User added successfully!')
+            alert('Account added successfully!')
         }else{
             alert("Something went wrong")
         }

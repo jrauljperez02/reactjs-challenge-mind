@@ -142,7 +142,7 @@ const EditAccountModal = (props) => {
                     style= {{marginTop:15}}
                     variant="primary" 
                     type="submit">
-                    Add Account
+                    Update account
                 </Button>
             </Form.Group>
         </Form>
