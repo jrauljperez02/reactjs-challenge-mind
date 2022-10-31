@@ -43,7 +43,7 @@ const Account = () => {
       if(response.status === 204){
           alert("Account deleted successfully!")
       }
-  }
+    }
   }
 
 

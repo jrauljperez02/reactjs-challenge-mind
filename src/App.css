@@ -59,3 +59,13 @@ main{
     font-size: 20px;
 }
 
+.gradient-custom {
+/* fallback for old browsers */
+background: #656ff6;
+
+/* Chrome 10-25, Safari 5.1-6 */
+background: -webkit-linear-gradient(to right bottom, rgb(101, 152, 246), rgb(133, 141, 253));
+
+/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+background: linear-gradient(to right bottom, rgb(101, 123, 246), rgb(133, 253, 171))
+}
