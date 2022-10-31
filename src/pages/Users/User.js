@@ -26,7 +26,7 @@ const User = () => {
 
     const deleteUser = async(userId) => {
         if(window.confirm(`Are you sure you want to delete user with ID ${userId}?`)){
-            const response = await fetch(`http://127.0.0.1:8000/api-users-admin/${userId}/`,{
+            const response = await fetch(`http://127.0.0.1:8000/api/user/users/${userId}/`,{
                 method: 'DELETE',
                 headers: {
                     Accept: 'application/json',
@@ -42,7 +42,7 @@ const User = () => {
 
     const handleClick = async () => {
         try {
-          const response = await fetch(`http://localhost:8000/api-users-admin/?name__icontains=${name}`, {
+          const response = await fetch(`http://127.0.0.1:8000/api/user/users/?name__icontains=${name}`, {
             method: 'GET',
             headers: {
                 Accept: 'application/json',

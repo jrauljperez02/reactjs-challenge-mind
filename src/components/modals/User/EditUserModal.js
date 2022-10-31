@@ -9,7 +9,7 @@ const EditUserModal = (props) => {
     const handleSubmit = async(event) => {   
         event.preventDefault();
 
-        const response = await fetch(`http://127.0.0.1:8000/api-users-admin/${props.userId}/`,{
+        const response = await fetch(`http://127.0.0.1:8000/api/user/users/${props.userId}/`,{
             method:'PUT',
             headers:{
                 'Accept':'application/json',
