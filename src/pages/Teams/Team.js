@@ -45,7 +45,7 @@ const Team = () => {
 
     const handleClick = async () => {
         try {
-          const response = await fetch(`http://localhost:8000/api-team/?team_name__icontains=${name}`, {
+          const response = await fetch(`http://localhost:8000/api/team/teams/?team_name__icontains=${name}`, {
             method: 'GET',
             headers: {
                 Accept: 'application/json',
@@ -68,7 +68,7 @@ const Team = () => {
         
         const loadUsers = async() => {
             try {
-                const response = await fetch(`http://localhost:8000/api-users-admin/`, {
+                const response = await fetch(`http://localhost:8000/api/user/users/`, {
                   method: 'GET',
                   headers: {
                       Accept: 'application/json',

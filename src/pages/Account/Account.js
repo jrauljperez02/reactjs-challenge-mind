@@ -34,7 +34,7 @@ const Account = () => {
 
   const deleteAccount = async(accountID,accountName) => {
     if(window.confirm(`Are you sure you want to delete account ${accountName}?`)){
-      const response = await fetch(`http://127.0.0.1:8000/api-account/accounts/${accountID}/`,{
+      const response = await fetch(`http://127.0.0.1:8000/api/account/accounts/${accountID}/`,{
           method: 'DELETE',
           headers: {
               Accept: 'application/json',
@@ -51,7 +51,7 @@ const Account = () => {
 
   const handleClick = async () => {
     try {
-      const response = await fetch(`http://127.0.0.1:8000/api-account/accounts/?account_name__icontains=${name}`, {
+      const response = await fetch(`http://127.0.0.1:8000/api/account/accounts/?account_name__icontains=${name}`, {
         method: 'GET',
         headers: {
             Accept: 'application/json',
@@ -75,7 +75,7 @@ const Account = () => {
         
     const loadUsers = async() => {
         try {
-            const response = await fetch(`http://localhost:8000/api-users-admin/`, {
+            const response = await fetch(`http://localhost:8000/api/user/users/`, {
               method: 'GET',
               headers: {
                   Accept: 'application/json',
@@ -97,7 +97,7 @@ const Account = () => {
 
     const loadTeams = async() => {
         try {
-            const response = await fetch(`http://127.0.0.1:8000/api-team/`, {
+            const response = await fetch(`http://127.0.0.1:8000/api/team/teams/`, {
               method: 'GET',
               headers: {
                   Accept: 'application/json',

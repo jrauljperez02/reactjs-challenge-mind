@@ -13,7 +13,7 @@ const EditAccountModal = (props) => {
         
         const loadUsers = async() => {
             try {
-                const response = await fetch(`http://localhost:8000/api-users-admin/`, {
+                const response = await fetch(`http://localhost:8000/api/user/users/`, {
                   method: 'GET',
                   headers: {
                       Accept: 'application/json',
@@ -35,7 +35,7 @@ const EditAccountModal = (props) => {
 
         const loadTeams = async() => {
             try {
-                const response = await fetch(`http://127.0.0.1:8000/api-team/`, {
+                const response = await fetch(`http://127.0.0.1:8000/api/team/teams/`, {
                   method: 'GET',
                   headers: {
                       Accept: 'application/json',
@@ -65,7 +65,7 @@ const EditAccountModal = (props) => {
     const handleSubmit = async(event) => {
         event.preventDefault();
 
-        const response = await fetch(`http://127.0.0.1:8000/api-account/accounts/${props.accountId}/`,{
+        const response = await fetch(`http://127.0.0.1:8000/api/account/accounts/${props.accountId}/`,{
             method:'PUT',
             headers:{
                 'Accept':'application/json',

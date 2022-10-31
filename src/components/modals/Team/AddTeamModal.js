@@ -18,7 +18,7 @@ const AddTeamModal = (props) => {
         event.preventDefault();
         const arrayOfUsersToPost = usersInput.map(user => user.split(' - ')[1])
 
-        const response = await fetch('http://127.0.0.1:8000/api-team/',{
+        const response = await fetch('http://127.0.0.1:8000/api/team/teams/',{
             method:'POST',
             headers:{
                 'Accept':'application/json',
@@ -43,7 +43,7 @@ const AddTeamModal = (props) => {
         
         const loadUsers = async() => {
             try {
-                const response = await fetch(`http://localhost:8000/api-users-admin/`, {
+                const response = await fetch(`http://localhost:8000/api/user/users/`, {
                   method: 'GET',
                   headers: {
                       Accept: 'application/json',
