@@ -30,7 +30,7 @@ const Team = () => {
 
     const deleteTeam = async(teamID,teamName) => {
         if(window.confirm(`Are you sure you want to delete ${teamName} team?`)){
-          const response = await fetch(`http://127.0.0.1:8000/api-team/${teamID}/`,{
+          const response = await fetch(`http://127.0.0.1:8000/api/team/teams/${teamID}/`,{
               method: 'DELETE',
               headers: {
                   Accept: 'application/json',
