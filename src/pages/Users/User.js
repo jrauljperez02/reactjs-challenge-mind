@@ -61,6 +61,7 @@ const User = () => {
         }
       };
 
+      console.log(users)
     
 
   return <div className='container'>
@@ -87,6 +88,8 @@ const User = () => {
                     <th>English level</th>
                     <th>Technical skills</th>
                     <th>Resume link</th>
+                    <th>Is staff</th>
+                    <th>Is superuser</th>
                     <th>Options</th>
                 </tr>
             </thead>
@@ -99,6 +102,8 @@ const User = () => {
                         <td>{user.english_level}</td>
                         <td>{user.technical_skills}</td>
                         <td>{user.resume_link}</td>
+                        {user.is_staff ? <td style={{textAlign: 'center'}}>✅</td> : <td style={{textAlign: 'center'}}>❌</td>}
+                        {user.is_superuser ? <td style={{textAlign: 'center'}}>✅</td> : <td style={{textAlign: 'center'}}>❌</td>}
                         <td>
                             <ButtonToolbar>
                                 <Button 

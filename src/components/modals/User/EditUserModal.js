@@ -1,4 +1,4 @@
-import React,{useContext} from 'react'
+import React,{useContext, useState} from 'react'
 import {Modal,Button, Row, Col, Form} from 'react-bootstrap';
 import AuthContext from '../../../context/AuthContext';
 
@@ -6,11 +6,14 @@ const EditUserModal = (props) => {
 
     let {authTokens} = useContext(AuthContext)
 
+    const [isStaff, setIsStaff] = useState(false)
+    const [isSuperUser, setIsSuperUser] = useState(false)
+
     const handleSubmit = async(event) => {   
         event.preventDefault();
 
         const response = await fetch(`http://127.0.0.1:8000/api/user/users/${props.userId}/`,{
-            method:'PUT',
+            method:'PATCH',
             headers:{
                 'Accept':'application/json',
                 'Content-Type':'application/json',
@@ -18,11 +21,12 @@ const EditUserModal = (props) => {
             },
             body:JSON.stringify({
                 'email': event.target.email.value,
-                'password': event.target.password.value,
                 'name': event.target.name.value,
                 'english_level': event.target.english_level.value,
                 'technical_skills': event.target.technical_skills.value,
-                'resume_link': event.target.resume_link.value
+                'resume_link': event.target.resume_link.value,
+                'is_staff': isStaff,
+                'is_superuser': isSuperUser,
             })
         })
 
@@ -53,17 +57,8 @@ const EditUserModal = (props) => {
                     <Col sm={6}>
                         <Form onSubmit={handleSubmit}>
                                 <Form.Label>Email</Form.Label>
-                                <Form.Control 
-                                    type="text" 
-                                    name="email" 
-                                    required 
-                                    placeholder="Email"/>
-
-
-                                <Form.Label>Password</Form.Label>
-                                <Form.Control type="text" name="password" required placeholder="Password"/>
-                                    
-
+                                <Form.Control type="text" name="email" required placeholder="Email"/>
+                                     
                                 <Form.Label>Name</Form.Label>
                                 <Form.Control type="text" name="name"  required placeholder="Name"/>
 
@@ -75,6 +70,20 @@ const EditUserModal = (props) => {
 
                                 <Form.Label>Resume link</Form.Label>
                                 <Form.Control type="text" name="resume_link"  required placeholder="Resume Link"/>
+
+                                <div className='form-check' style={{paddingTop: 15}}>
+                                    <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" onChange={() => {setIsStaff(!isStaff)}}/>
+                                    <label className="form-check-label" for="flexCheckDefault">
+                                        Is staff?
+                                    </label>
+                                </div>
+
+                                <div className='form-check'>
+                                    <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" onChange={() => {setIsSuperUser(!isSuperUser)}}/>
+                                    <label className="form-check-label" for="flexCheckDefault">
+                                        Is superuser?
+                                    </label>
+                                </div>
                         
                                 <Form.Group>
                                     <Button 
