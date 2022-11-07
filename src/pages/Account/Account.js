@@ -121,8 +121,11 @@ const Account = () => {
 
 },[authTokens.access])
 
+
   const usersObject = convertArrayToObject(users,'id');
   const teamsObject = convertArrayToObject(teams,'id');
+
+
 
 
   return(
@@ -154,7 +157,10 @@ const Account = () => {
                 </tr>
             </thead>
             <tbody>
-                {accounts.map(account => 
+
+              {usersObject === {} && null}
+                {usersObject !== {} &&
+                accounts.map(account => 
                     <tr key = {account.id}>
                         <td>{account.id}</td>
                         <td>{account.account_name}</td>
